@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Additional Info</title>
+    <style>
+        /* General body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('abc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Form container styling */
+        form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #333, #ff6600);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff9900;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            background-color: #ff9900;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffcc33;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Successful</h1>
+    <p>Your registration has been successfully completed!</p>
+    <form action="/submit-additional-info" method="POST">
+        <!-- Trainer Type -->
+        <label for="trainerType">Trainer Type:</label>
+        <select id="trainerType" name="trainerType" required>
+            <option value="">Select Trainer Type</option>
+            <option value="Personal Trainer">Personal Trainer</option>
+            <option value="Group Trainer">Group Trainer</option>
+            <option value="Online Trainer">Online Trainer</option>
+        </select>
+
+        <!-- Field of Expertise -->
+        <label for="field">Field of Expertise:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="field[]" value="Calisthenics"> Calisthenics</label>
+            <label><input type="checkbox" name="field[]" value="Cardio"> Cardio</label>
+            <label><input type="checkbox" name="field[]" value="General Training"> General Training</label>
+            <label><input type="checkbox" name="field[]" value="Strength Training"> Strength Training</label>
+        </div>
+
+        <!-- Morning Slots -->
+        <label>Morning Slots:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="morningSlots[]" value="6-8 AM"> 6-8 AM</label>
+            <label><input type="checkbox" name="morningSlots[]" value="8-10 AM"> 8-10 AM</label>
+        </div>
+
+        <!-- Evening Slots -->
+        <label>Evening Slots:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="eveningSlots[]" value="5-7 PM"> 5-7 PM</label>
+            <label><input type="checkbox" name="eveningSlots[]" value="7-9 PM"> 7-9 PM</label>
+        </div>
+
+        <!-- Days Available -->
+        <label>Days Available:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="days[]" value="Monday"> Monday</label>
+            <label><input type="checkbox" name="days[]" value="Tuesday"> Tuesday</label>
+            <label><input type="checkbox" name="days[]" value="Wednesday"> Wednesday</label>
+            <label><input type="checkbox" name="days[]" value="Thursday"> Thursday</label>
+            <label><input type="checkbox" name="days[]" value="Friday"> Friday</label>
+            <label><input type="checkbox" name="days[]" value="Saturday"> Saturday</label>
+            <label><input type="checkbox" name="days[]" value="Sunday"> Sunday</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

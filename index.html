@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Registration</title>
+    <style>
+        /* General body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url(abc.jpg)no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Form container styling */
+        form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #333, #ff6600);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff9900;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input, textarea {
+            background: #444;
+            color: #fff;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #bbb;
+        }
+
+        button {
+            background-color: #ff9900;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffcc33;
+        }
+
+        input[type="file"] {
+            background: none;
+            color: #fff;
+        }
+
+        /* Radio buttons inline styling */
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .radio-group label {
+            margin: 0;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-group input {
+            margin-right: 5px;
+        }
+
+        /* Styling for file upload buttons */
+        input[type="file"]::file-selector-button {
+            background-color: #0e0d0d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trainer Registration Form</h1>
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+        <!-- Name -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <!-- Age -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age" min="18" required>
+
+        <!-- Gender -->
+        <label>Gender:</label>
+        <div class="radio-group">
+            <label><input type="radio" id="male" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" id="female" name="gender" value="Female" required> Female</label>
+            <label><input type="radio" id="other" name="gender" value="Other" required> Other</label>
+        </div>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+        <!-- Phone -->
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+
+        <!-- Place -->
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place" placeholder="Enter your place" required>
+
+        <!-- Photo Upload -->
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+
+        <!-- ID Proof Upload -->
+        <label for="idProof">Upload ID Proof:</label>
+        <input type="file" id="idProof" name="idProof" accept=".pdf,.jpg,.jpeg,.png" required>
+
+        <!-- Total Experience -->
+        <label for="experience">Total Experience (in years):</label>
+        <input type="number" id="experience" name="experience" placeholder="Enter total years of experience" min="0" required>
+
+        <!-- Certificate Upload -->
+        <label for="certificate">Upload Certificates:</label>
+        <input type="file" id="certificate" name="certificate" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+
+        <!-- Text Field for Experience -->
+        <label for="experienceDetails">Experience Details:</label>
+        <textarea id="experienceDetails" name="experienceDetails" placeholder="Describe your experience in detail" rows="5" required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
