@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Registration</title>
+</head>
+<body>
+  <center>
+    <h1>Client Registration</h1>
+    <form>
+      <table border="0" cellspacing="10">
+        <tr>
+          <td><label for="name">Name:</label></td>
+          <td><input type="text" id="name" name="name" placeholder="Enter your name" required></td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="phone">Phone Number:</label></td>
+          <td><input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" title="Phone number must be 10 digits" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email ID:</label></td>
+          <td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td>
+            <input type="password" id="password" name="password" placeholder="Enter a strong password" 
+              pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+              title="Must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character"
+              required>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="address">Address:</label></td>
+          <td><textarea id="address" name="address" rows="3" cols="30" placeholder="Enter your address" required></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td><input type="number" id="age" name="age" placeholder="Enter your age" min="1" required></td>
+        </tr>
+        <tr>
+          <td><label for="weight">Weight (in kgs):</label></td>
+          <td><input type="number" id="weight" name="weight" placeholder="Enter your weight" min="1" required></td>
+        </tr>
+        <tr>
+          <td><label for="height">Height (in cms):</label></td>
+          <td><input type="number" id="height" name="height" placeholder="Enter your height" min="1" required></td>
+        </tr>
+        <tr>
+          <td>Current Fitness Level:</td>
+          <td>
+            <input type="radio" id="beginner" name="fitness" value="Beginner" required>
+            <label for="beginner">Beginner</label>
+            <input type="radio" id="intermediate" name="fitness" value="Intermediate">
+            <label for="intermediate">Intermediate</label>
+            <input type="radio" id="advanced" name="fitness" value="Advanced">
+            <label for="advanced">Advanced</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Choose Membership Type:</td>
+          <td>
+            <input type="radio" id="personal_training" name="membership" value="Personal Training" required>
+            <label for="personal_training">Personal Training <br> 
+            <small>(Get one-to-one training with certified trainers)</small></label><br>
+            <input type="radio" id="general_membership" name="membership" value="General Membership">
+            <label for="general_membership">General Membership <br> 
+            <small>(Access all gym facilities)</small></label>
+          </td>
+        </tr>
+        <tr>
+          <td>Diet Preferences:</td>
+          <td>
+            <input type="radio" id="vegan" name="diet" value="Vegan" required>
+            <label for="vegan">Vegan</label>
+            <input type="radio" id="veg" name="diet" value="Vegetarian">
+            <label for="veg">Vegetarian</label>
+            <input type="radio" id="nonveg" name="diet" value="Non-Veg">
+            <label for="nonveg">Non-Veg</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Preferred Workout Types:</td>
+          <td>
+            <input type="checkbox" id="cardio" name="workout_types" value="Cardio">
+            <label for="cardio">Cardio</label>
+            <input type="checkbox" id="yoga" name="workout_types" value="Yoga">
+            <label for="yoga">Yoga</label>
+            <input type="checkbox" id="strength" name="workout_types" value="Strength Training">
+            <label for="strength">Strength Training</label>
+            <input type="checkbox" id="zumba" name="workout_types" value="Zumba">
+            <label for="zumba">Zumba</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Preferred Workout Time:</td>
+          <td>
+            <input type="radio" id="morning" name="workout_time" value="Morning (6-9 AM)" required>
+            <label for="morning">Morning (6-9 AM)</label>
+            <input type="radio" id="afternoon" name="workout_time" value="Afternoon (12-3 PM)">
+            <label for="afternoon">Afternoon (12-3 PM)</label>
+            <input type="radio" id="evening" name="workout_time" value="Evening (5-8 PM)">
+            <label for="evening">Evening (5-8 PM)</label>
+          </td>
+        </tr>
+        <tr>
+          <td>How did you hear about us:</td>
+          <td>
+            <input type="radio" id="socialmedia" name="referral" value="Social Media" required>
+            <label for="socialmedia">Social Media</label>
+            <input type="radio" id="friendsfamily" name="referral" value="Friends/Family">
+            <label for="friendsfamily">Friends/Family</label>
+            <input type="radio" id="website" name="referral" value="Website">
+            <label for="website">Website</label>
+            <input type="radio" id="advertisement" name="referral" value="Advertisement">
+            <label for="advertisement">Advertisement</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Do you have any medical conditions or injuries?</td>
+          <td>
+            <input type="radio" id="yes" name="medical_conditions" value="Yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="medical_conditions" value="No" required>
+            <label for="no">No</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="medical_info">Upload Medical Info (if applicable):</label></td>
+          <td><input type="file" id="medical_info" name="medical_info"></td>
+        </tr>
+        <tr>
+          <td><label for="picture">Upload Your Picture:</label></td>
+          <td><input type="file" id="picture" name="picture"></td>
+        </tr>
+        <tr>
+          <td><label for="id_proof">Upload ID Proof:</label></td>
+          <td><input type="file" id="id_proof" name="id_proof"></td>
+        </tr>
+      </table>
+      <br>
+      <button type="submit">Register</button>
+    </form>
+  </center>
+</body>
+</html>
