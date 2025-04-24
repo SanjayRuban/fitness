@@ -1,0 +1,75 @@
+<!-- fitness_membership_jquery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fitness Membership - jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2>Fitness Membership Registration</h2>
+  <form id="membershipForm">
+    <label>Name:</label>
+    <input type="text" id="name"><br>
+
+    <label>Membership Type:</label>
+    <select id="membership">
+      <option value="basic">Basic</option>
+      <option value="premium">Premium</option>
+    </select><br>
+
+    <label>Trainer:</label>
+    <select id="trainer">
+      <option value="john">John</option>
+      <option value="emma">Emma</option>
+    </select><br>
+
+    <label>Goals:</label>
+    <input type="text" id="goals"><br>
+
+    <button type="submit" id="submitBtn">Submit</button>
+  </form>
+
+  <p id="hoverArea">Hover over this text</p>
+  <button id="dblClickBtn">Double Click Me</button>
+
+  <script>
+    $(document).ready(function () {
+      alert("Page Loaded: Welcome!");
+
+      $('#name').on('keypress', function (e) {
+        console.log("Key pressed:", e.key);
+      });
+
+      $('#membership').on('change', function () {
+        alert("Membership changed to: " + $(this).val());
+      });
+
+      $('#trainer').on('change', function () {
+        alert("Trainer selected: " + $(this).val());
+      });
+
+      $('#goals').on('select', function () {
+        alert("Text selected in Goals field.");
+      });
+
+      $('#submitBtn').on('click', function () {
+        alert("Submit button clicked.");
+      });
+
+      $('#dblClickBtn').on('dblclick', function () {
+        alert("Double clicked!");
+      });
+
+      $('#hoverArea').on('mousemove', function (e) {
+        console.log("Mouse moved at:", e.pageX, e.pageY);
+      });
+
+      $('#membershipForm').on('submit', function (e) {
+        e.preventDefault(); // Prevent real submission
+        alert("Form Submitted Successfully (Simulated)!");
+      });
+    });
+  </script>
+</body>
+</html>

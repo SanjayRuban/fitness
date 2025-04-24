@@ -1,0 +1,104 @@
+<!-- gym_management_jquery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gym Management - jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2>Gym Member Management</h2>
+  First Name: <input type="text" id="fname"><br>
+  Last Name: <input type="text" id="lname"><br>
+  <button id="addMember">Add Member</button>
+  <button id="removeMember">Remove Last Member</button>
+
+  <ul id="memberList"></ul>
+
+  <script>
+    let members = [];
+
+    function Member(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      Object.defineProperty(this, 'fullName', {
+        get: () => this.firstName + " " + this.lastName,
+        set: (name) => {
+          let parts = name.split(" ");
+          this.firstName = parts[0];
+          this.lastName = parts[1];
+        }
+      });
+    }
+
+    function displayMembers() {
+      $("#memberList").empty();
+      $.each(members, function (i, member) {
+        $("#memberList").append(`
+          <li>
+            Member ${i + 1}: ${member.fullName}
+            <button onclick="editMember(${i})">Edit</button>
+            <button onclick="deleteMember(${i})">Delete</button>
+          </li>
+        `);
+      });
+    }
+
+    function editMember(index) {
+      let newName = prompt("Edit full name:", members[index].fullName);
+      if (newName) {
+        members[index].fullName = newName;
+        displayMembers();
+      }
+    }
+
+    function deleteMember(index) {
+      members.splice(index, 1);
+      displayMembers();
+    }
+
+    $("#addMember").click(function () {
+      const fname = $("#fname").val();
+      const lname = $("#lname").val();
+
+      if (fname && lname) {
+        members.push(new Member(fname, lname));
+        displayMembers();
+      } else {
+        alert("Please enter both names.");
+      }
+    });
+
+    $("#removeMember").click(function () {
+      if (members.length > 0) {
+        members.pop();
+        displayMembers();
+      } else {
+        alert("No members to remove.");
+      }
+    });
+
+    // AJAX simulation: Show member using call()
+    function showDetails() {
+      console.log("AJAX Example - Member Name:", this.fullName);
+    }
+
+    const ajaxSimulation = () => {
+      if (members.length > 0) {
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/posts/1", // Dummy endpoint
+          method: "GET",
+          success: function () {
+            showDetails.call(members[0]);
+          }
+        });
+      }
+    };
+
+    // Trigger AJAX simulation after member is added
+    $("#addMember").click(function () {
+      setTimeout(ajaxSimulation, 1000);
+    });
+  </script>
+</body>
+</html>
