@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness Membership</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    input, button, select { margin: 10px; padding: 8px; }
+  </style>
+</head>
+<body onload="pageLoaded()">
+
+<h2>Fitness Membership Registration</h2>
+
+<form onsubmit="return validateForm()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" onkeypress="keyPressed(event)" required><br>
+
+  <label for="membership">Membership Type:</label>
+  <select id="membership" onchange="membershipChanged()">
+    <option value="basic">Basic</option>
+    <option value="premium">Premium</option>
+  </select><br>
+
+  <label for="trainer">Choose Trainer:</label>
+  <select id="trainer" onchange="trainerSelected()">
+    <option value="john">John (Strength)</option>
+    <option value="emma">Emma (Yoga)</option>
+  </select><br>
+
+  <label for="goals">Fitness Goals:</label>
+  <input type="text" id="goals" onselect="textSelected()"><br>
+
+  <button type="submit" onclick="submitClicked()">Submit</button>
+</form>
+
+<p onmousemove="mouseMoved(event)">Hover over this text to see mouse move event.</p>
+
+<button ondblclick="doubleClicked()">Double Click Me</button>
+
+<script>
+  function pageLoaded() {
+    alert("Page Loaded: Welcome to Fitness Membership!");
+  }
+
+  function keyPressed(event) {
+    console.log("Key Pressed: ", event.key);
+  }
+
+  function membershipChanged() {
+    alert("Membership Type Changed to: " + document.getElementById("membership").value);
+  }
+
+  function trainerSelected() {
+    alert("Trainer Selected: " + document.getElementById("trainer").value);
+  }
+
+  function textSelected() {
+    alert("Text Selected in Goals Field!");
+  }
+
+  function submitClicked() {
+    alert("Submit Button Clicked!");
+  }
+
+  function validateForm() {
+    alert("Form Submitted Successfully!");
+    return false;
+  }
+
+  function mouseMoved(event) {
+    console.log("Mouse moved at:", event.clientX, event.clientY);
+  }
+
+  function doubleClicked() {
+    alert("Button Double Clicked!");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gym Membership Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    .container { width: 50%; margin: auto; }
+    .member-list { text-align: left; margin-top: 20px; }
+    button { margin: 5px; padding: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+<h2>Gym Membership Management</h2>
+<div class="container">
+  <label for="fname">First Name:</label>
+  <input type="text" id="fname"><br><br>
+
+  <label for="lname">Last Name:</label>
+  <input type="text" id="lname"><br><br>
+
+  <button id="addMemberBtn">Add Member</button>
+  <button id="removeMemberBtn">Remove Last Member</button>
+
+  <div class="member-list">
+    <h3>Members List:</h3>
+    <ul id="members"></ul>
+  </div>
+</div>
+
+<script>
+  let members = [];
+
+  function Member(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    Object.defineProperty(this, 'fullName', {
+      get: () => this.firstName + " " + this.lastName,
+      set: (name) => {
+        let parts = name.split(" ");
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+      }
+    });
+  }
+
+  const addMember = () => {
+    let firstName = document.getElementById("fname").value;
+    let lastName = document.getElementById("lname").value;
+
+    if (firstName && lastName) {
+      let newMember = new Member(firstName, lastName);
+      members.push(newMember);
+      displayMembers();
+    } else {
+      alert("Please enter both first and last name!");
+    }
+  };
+
+  const removeMember = () => {
+    if (members.length > 0) {
+      members.pop();
+      displayMembers();
+    } else {
+      alert("No members to remove!");
+    }
+  };
+
+  const displayMembers = () => {
+    let list = document.getElementById("members");
+    list.innerHTML = "";
+
+    members.forEach((member, index) => {
+      let li = document.createElement("li");
+      li.innerHTML = `Member ${index + 1}: ${member.fullName}
+      <button onclick="editMember(${index})">Edit</button>
+      <button onclick="deleteMember(${index})">Delete</button>`;
+      list.appendChild(li);
+    });
+  };
+
+  const editMember = (index) => {
+    let newName = prompt("Enter new full name:", members[index].fullName);
+    if (newName) {
+      members[index].fullName = newName;
+      displayMembers();
+    }
+  };
+
+  const deleteMember = (index) => {
+    members.splice(index, 1);
+    displayMembers();
+  };
+
+  const showDetails = function() {
+    console.log(`Member Name: ${this.fullName}`);
+  };
+
+  const showUsingApply = () => showDetails.apply(members[0]);
+  const showUsingCall = () => showDetails.call(members[0]);
+  const showUsingBind = () => {
+    let boundFunc = showDetails.bind(members[0]);
+    boundFunc();
+  };
+
+  document.getElementById("addMemberBtn").addEventListener("click", addMember);
+  document.getElementById("removeMemberBtn").addEventListener("click", removeMember);
+</script>
+</body>
+</html>
