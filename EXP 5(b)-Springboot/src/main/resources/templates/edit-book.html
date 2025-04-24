@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add/Edit Book</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+        form { background: white; padding: 20px; max-width: 400px; margin: auto; border-radius: 10px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: #2ecc71; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Book Form</h2>
+    <form th:action="@{/update/{id}(id=${book.id})}" th:object="${book}" method="post">
+
+        <input type="text" th:field="*{title}" placeholder="Title" required />
+        <input type="text" th:field="*{author}" placeholder="Author" required />
+        <input type="text" th:field="*{isbn}" placeholder="ISBN" required />
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
